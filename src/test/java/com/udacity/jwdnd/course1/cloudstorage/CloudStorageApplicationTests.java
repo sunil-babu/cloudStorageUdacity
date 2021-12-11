@@ -65,10 +65,8 @@ class CloudStorageApplicationTests {
 		password.sendKeys("babu");
 		WebElement submitButton=driver.findElement(By.id("signup-button"));
 		submitButton.click();
-		WebElement successDiv =driver.findElement(By.id("success"));
-		Assertions.assertEquals("You successfully signed up! Please continue to the login page.",successDiv.getText());
-		WebElement loginLink =driver.findElement(By.id("login"));
-		loginLink.click();
+		WebElement successDiv =driver.findElement(By.id("signup-success"));
+		Assertions.assertEquals("You've successfully signed up!",successDiv.getText());
 		WebElement usernameLogin = driver.findElement(By.name("username"));
 		usernameLogin.sendKeys("sunil");
 		WebElement passwordLogin = driver.findElement(By.name("password"));
@@ -94,10 +92,8 @@ class CloudStorageApplicationTests {
 			password.sendKeys(pass);
 			WebElement submitButton=driver.findElement(By.id("signup-button"));
 			submitButton.click();
-			WebElement successDiv =driver.findElement(By.id("success"));
-			Assertions.assertEquals("You successfully signed up! Please continue to the login page.",successDiv.getText());
-			WebElement loginLink =driver.findElement(By.id("login"));
-			loginLink.click();
+			WebElement successDiv =driver.findElement(By.id("signup-success"));
+			Assertions.assertEquals("You've successfully signed up!",successDiv.getText());
 			WebElement usernameLogin = driver.findElement(By.name("username"));
 			usernameLogin.sendKeys(uName);
 			WebElement passwordLogin = driver.findElement(By.name("password"));

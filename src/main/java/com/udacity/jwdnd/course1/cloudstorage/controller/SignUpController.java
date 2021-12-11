@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @AllArgsConstructor
@@ -23,14 +24,14 @@ public class SignUpController {
     }
 
     @PostMapping
-    public String signupUser(@ModelAttribute User user) {
+    public String signupUser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
         try {
             usersService.registerUser(user);
         } catch (Exception e) {
             return "redirect:signup?error";
         }
-
-        return "redirect:signup?success";
+        redirectAttributes.addFlashAttribute("SuccessMessage","Sign Up Successfully");
+        return "redirect:/login";
     }
 
 }
